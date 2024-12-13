@@ -6,4 +6,13 @@ export default defineConfig({
     postcss: './postcss.config.js',
     plugins: [react()],
   },
+  build: {
+    outDir: 'dist',
+    // Any additional build configuration
+  },
+  server: {
+    // Server settings
+  },
 });
+  
+

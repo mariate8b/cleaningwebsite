@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const Booking = () => {
-  const [formData, setFormData] = useState({
+  const [bookingData, setBookingData] = useState({
     name: "",
     email: "",
     phone: "",
@@ -15,19 +15,23 @@ const Booking = () => {
   });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setBookingData({ ...bookingData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("/api/bookings", formData);
-      alert("Booking confirmed!");
+      const response = await axios.post("http://localhost:5001/api/bookings", bookingData);
+      if (response.status === 200) {
+        alert("Booking confirmed!");
+      }
     } catch (error) {
-      console.error(error);
+      console.error("Error submitting booking:", error);
       alert("Failed to book. Please try again.");
     }
   };
+  
+  
 
   return (
     <div className="p-8 bg-white">
@@ -38,7 +42,7 @@ const Booking = () => {
           name="name"
           placeholder="Name"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.name}
+          value={bookingData.name}
           onChange={handleChange}
           required
         />
@@ -47,7 +51,7 @@ const Booking = () => {
           name="email"
           placeholder="Email"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.email}
+          value={bookingData.email}
           onChange={handleChange}
           required
         />
@@ -56,7 +60,7 @@ const Booking = () => {
           name="phone"
           placeholder="Phone"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.phone}
+          value={bookingData.phone}
           onChange={handleChange}
           required
         />
@@ -65,7 +69,7 @@ const Booking = () => {
           name="address"
           placeholder="Address"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.address}
+          value={bookingData.address}
           onChange={handleChange}
           required
         />
@@ -74,7 +78,7 @@ const Booking = () => {
           name="squareFootage"
           placeholder="Square Footage"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.squareFootage}
+          value={bookingData.squareFootage}
           onChange={handleChange}
           required
         />
@@ -82,14 +86,14 @@ const Booking = () => {
           name="description"
           placeholder="Cleaning Description"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.description}
+          value={bookingData.description}
           onChange={handleChange}
           required
         ></textarea>
         <select
           name="paymentMethod"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.paymentMethod}
+          value={bookingData.paymentMethod}
           onChange={handleChange}
           required
         >
@@ -101,7 +105,7 @@ const Booking = () => {
           type="date"
           name="date"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.date}
+          value={bookingData.date}
           onChange={handleChange}
           required
         />
@@ -111,7 +115,7 @@ const Booking = () => {
           min="08:00"
           max="18:00"
           className="block w-full p-2 border border-gray-300 rounded-lg"
-          value={formData.time}
+          value={bookingData.time}
           onChange={handleChange}
           required
         />

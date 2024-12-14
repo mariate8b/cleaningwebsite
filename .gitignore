@@ -3,3 +3,4 @@
 
 # Ignore all .json files in the cleaning-backend folder
 cleaning-backend/*.json
+node_modules

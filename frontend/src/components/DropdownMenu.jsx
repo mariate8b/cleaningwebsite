@@ -48,22 +48,16 @@ const DropdownMenu = () => {
             >
               Booking
             </Link>
+            <Link
+              to="/about-us"
+              className="text-white block px-4 py-2 text-sm hover:bg-blue-700 font-bold"
+              role="menuitem"
+            >
+              Booking
+            </Link>
             {/* Payment Link */}
-            <Link
-              to="/payment"
-              className="text-white block px-4 py-2 text-sm hover:bg-blue-700 font-bold"
-              role="menuitem"
-            >
-              Payment
-            </Link>
-            {/* Confirmation Link */}
-            <Link
-              to="/confirmation"
-              className="text-white block px-4 py-2 text-sm hover:bg-blue-700 font-bold"
-              role="menuitem"
-            >
-              Confirmation
-            </Link>
+            
+            
           </div>
         </div>
       )}

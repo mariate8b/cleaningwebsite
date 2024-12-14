@@ -4,7 +4,8 @@ import Home from "./pages/Home";
 import Booking from "./pages/Booking";
 import Payment from "./pages/Payment";
 import Confirmation from "./pages/ConfirmationPage";
-import DropdownMenu from './components/DropdownMenu.jsx';  // Make sure it has the correct extension
+import DropdownMenu from './components/DropdownMenu.jsx'; 
+import AboutUs from "./pages/AboutUs";
  // Correct import path
 import './index.css';
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/booking" element={<Booking />} />
           <Route path="/payment" element={<Payment />} />
           <Route path="/confirmation" element={<Confirmation />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </div>
     </Router>
